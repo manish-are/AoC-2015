@@ -9,11 +9,5 @@ fs.readFile(filePath,'utf8',(err,data) => {
 	}
 
 
-	console.log(data.trim().split('').reduce((acc,curr) => {
-		if(curr === '('){
-			return acc + 1;
-		}else if(curr === ')'){
-			return acc -1;
-		}},0));
-
+	console.log(data.trim().split('').reduce((acc,curr) => acc += curr == "(" ? 1 : -1, 0));
 });
